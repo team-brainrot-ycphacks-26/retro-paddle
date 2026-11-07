@@ -34,20 +34,18 @@ height = 0.3
 [sub_resource type="SphereShape3D" id="SphereShape3D_ldcxq"]
 radius = 0.15
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fc0e3"]
-friction = 0.0
-bounce = 1.0
-
-[sub_resource type="BoxMesh" id="BoxMesh_dksfx"]
-size = Vector3(0.5, 0.5, 0.1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_kh0q7"]
-size = Vector3(0.5, 0.5, 0.1)
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_feb5d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0w2e0"]
 size = Vector3(0.5, 0.5, 0.1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_0w2e0"]
+size = Vector3(0.5, 0.5, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7hymd"]
+size = Vector3(0.5, 0.5, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7hymd"]
 size = Vector3(0.5, 0.5, 0.1)
 
 [node name="Game" type="Node3D" unique_id=765276773]
@@ -109,19 +107,9 @@ shape = SubResource("SphereShape3D_ldcxq")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=395989490]
 transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364818, 0, -0.17364818, 0.9848077, -0.11620426, 1.5421196, 2.6540098)
 
-[node name="AnimatablePaddle2" type="AnimatableBody3D" parent="." unique_id=689241658]
-physics_material_override = SubResource("PhysicsMaterial_fc0e3")
-
-[node name="Paddle 2" type="MeshInstance3D" parent="AnimatablePaddle2" unique_id=1761316439]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
-mesh = SubResource("BoxMesh_dksfx")
-
-[node name="CollsionPaddle2" type="CollisionShape3D" parent="AnimatablePaddle2" unique_id=1907009098]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
-shape = SubResource("BoxShape3D_kh0q7")
-
 [node name="Paddle1" type="AnimatableBody3D" parent="." unique_id=509870967 node_paths=PackedStringArray("ar_view")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
+physics_material_override = SubResource("PhysicsMaterial_feb5d")
 script = ExtResource("2_e2o6t")
 ar_view = NodePath("../ARView")
 
@@ -136,3 +124,12 @@ transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0
 current = true
 script = ExtResource("3_feb5d")
 ar_view = NodePath("../../ARView")
+
+[node name="Paddle2" type="AnimatableBody3D" parent="." unique_id=40986722]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Paddle2" unique_id=1867532689]
+shape = SubResource("BoxShape3D_7hymd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Paddle2" unique_id=1109840018]
+mesh = SubResource("BoxMesh_7hymd")
