@@ -47,5 +47,5 @@ func _on_peer_connected(id: int) -> void:
 	print("Client connected: ", id)
 
 
-func _on_peer_disconnected(id: int) -> void:
+func _on_peer_disconnected(_id: int) -> void:
 	pass
