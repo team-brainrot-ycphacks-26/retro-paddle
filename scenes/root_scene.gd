@@ -3,6 +3,8 @@ extends Node
 
 @onready var content_scene: Node = %ContentScene
 
+@onready var lobby_manager: Node = %LobbyManager
+
 static var instance: RootScene:
 	get:
 		var scene_tree = Engine.get_main_loop() as SceneTree

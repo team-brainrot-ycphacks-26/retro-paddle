@@ -36,8 +36,16 @@ func _ready() -> void:
 		# Creates signal for clients connecting
 		multiplayer.peer_connected.connect(_on_peer_connected)
 
+		multiplayer.peer_disconnected.disconnect(_on_peer_disconnected)
+
 		multiplayer.multiplayer_peer = peer
 
 
 func _on_peer_connected(id: int) -> void:
+	var player = Player.new(id)
+	RootScene.instance.lobby_manager.add_player(player)
 	print("Client connected: ", id)
+
+
+func _on_peer_disconnected(id: int) -> void:
+	pass

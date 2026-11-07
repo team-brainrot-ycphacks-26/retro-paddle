@@ -8,9 +8,11 @@
 script = ExtResource("1_kc8py")
 
 [node name="LobbyManager" parent="." unique_id=55853016 instance=ExtResource("2_cgud6")]
+unique_name_in_owner = true
 
 [node name="ContentScene" type="Node" parent="." unique_id=167327846]
 unique_name_in_owner = true
 
 [node name="Network Manager" type="Node" parent="." unique_id=85247022]
+unique_name_in_owner = true
 script = ExtResource("3_sfakk")
