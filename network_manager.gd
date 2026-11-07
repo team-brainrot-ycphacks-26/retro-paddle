@@ -1,10 +1,10 @@
 extends Node
 
 # CHANGE TO SERVER'S TAILSCALE IP BEFORE USE
-var SERVER_IP_ADDRESS: String = "100.118.183.52"
+const SERVER_IP_ADDRESS: String = "100.118.183.52"
 
-var SERVER_PORT: int = 27015
-var MAX_PLAYERS: int = 2
+const SERVER_PORT: int = 27015
+const MAX_PLAYERS: int = 2
 
 
 # Called when the node enters the scene tree for the first time.

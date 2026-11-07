@@ -32,19 +32,9 @@ size = Vector3(0.5, 0.5, 0.1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_kh0q7"]
 size = Vector3(0.5, 0.5, 0.1)
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_feb5d"]
-properties/0/path = NodePath("..:position")
-properties/0/spawn = true
-properties/0/replication_mode = 1
-
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fc0e3"]
 friction = 0.0
 bounce = 1.0
-
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_fc0e3"]
-properties/0/path = NodePath(".:position")
-properties/0/spawn = true
-properties/0/replication_mode = 1
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_80nbo"]
 friction = 0.0
@@ -56,11 +46,6 @@ height = 0.3
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ldcxq"]
 radius = 0.15
-
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_7jktm"]
-properties/0/path = NodePath("../../Paddle 1:position")
-properties/0/spawn = true
-properties/0/replication_mode = 1
 
 [node name="Game" type="Node3D" unique_id=765276773]
 
@@ -112,9 +97,6 @@ mesh = SubResource("BoxMesh_dksfx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
 shape = SubResource("BoxShape3D_kh0q7")
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="Paddle 1/AnimatablePaddle1" unique_id=1338648035]
-replication_config = SubResource("SceneReplicationConfig_feb5d")
-
 [node name="Paddle 2" type="Node3D" parent="." unique_id=2075879603]
 
 [node name="AnimatablePaddle2" type="AnimatableBody3D" parent="Paddle 2" unique_id=689241658]
@@ -127,9 +109,6 @@ mesh = SubResource("BoxMesh_dksfx")
 [node name="CollsionPaddle2" type="CollisionShape3D" parent="Paddle 2/AnimatablePaddle2" unique_id=1907009098]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
 shape = SubResource("BoxShape3D_kh0q7")
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="Paddle 2" unique_id=1098936871]
-replication_config = SubResource("SceneReplicationConfig_fc0e3")
 
 [node name="Ball" type="Node3D" parent="." unique_id=1354277287]
 
@@ -147,9 +126,6 @@ mesh = SubResource("SphereMesh_ooxkd")
 shape = SubResource("SphereShape3D_ldcxq")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Ball/RigidBall3D" unique_id=614452322]
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="Ball/RigidBall3D" unique_id=1488508978]
-replication_config = SubResource("SceneReplicationConfig_7jktm")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=395989490]
 transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364818, 0, -0.17364818, 0.9848077, -0.11620426, 1.5421196, 2.6540098)
