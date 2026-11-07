@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cyuhulta0gems"]
 
-[ext_resource type="Script" uid="uid://5t2vdcrveb86" path="res://rigid_body_3d.gd" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://be0oavmxlx2em" path="res://addons/pocketar/ar_view.tscn" id="1_feb5d"]
+[ext_resource type="Script" uid="uid://i01uqttntwc2" path="res://P1pos.gd" id="2_e2o6t"]
+[ext_resource type="Script" uid="uid://ci8crey1fyqmc" path="res://P1cam.gd" id="3_feb5d"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kh0q7"]
 friction = 0.0
@@ -21,20 +23,6 @@ size = Vector3(2, 0.03, 4)
 [sub_resource type="BoxShape3D" id="BoxShape3D_dksfx"]
 size = Vector3(0.03, 2, 4)
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7jktm"]
-friction = 0.0
-bounce = 1.0
-
-[sub_resource type="BoxMesh" id="BoxMesh_dksfx"]
-size = Vector3(0.5, 0.5, 0.1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_kh0q7"]
-size = Vector3(0.5, 0.5, 0.1)
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fc0e3"]
-friction = 0.0
-bounce = 1.0
-
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_80nbo"]
 friction = 0.0
 bounce = 1.0
@@ -46,7 +34,26 @@ height = 0.3
 [sub_resource type="SphereShape3D" id="SphereShape3D_ldcxq"]
 radius = 0.15
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fc0e3"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_dksfx"]
+size = Vector3(0.5, 0.5, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kh0q7"]
+size = Vector3(0.5, 0.5, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0w2e0"]
+size = Vector3(0.5, 0.5, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0w2e0"]
+size = Vector3(0.5, 0.5, 0.1)
+
 [node name="Game" type="Node3D" unique_id=765276773]
+
+[node name="ARView" parent="." unique_id=1008093009 instance=ExtResource("1_feb5d")]
+visible = false
 
 [node name="Walls" type="Node3D" parent="." unique_id=1254642297]
 
@@ -83,32 +90,6 @@ shape = SubResource("BoxShape3D_dksfx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
 shape = SubResource("BoxShape3D_dksfx")
 
-[node name="Paddle 1" type="Node3D" parent="." unique_id=1151950113]
-
-[node name="AnimatablePaddle1" type="AnimatableBody3D" parent="Paddle 1" unique_id=1476328307]
-physics_material_override = SubResource("PhysicsMaterial_7jktm")
-
-[node name="Paddle 1" type="MeshInstance3D" parent="Paddle 1/AnimatablePaddle1" unique_id=960677750]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
-mesh = SubResource("BoxMesh_dksfx")
-
-[node name="CollisionPaddle1" type="CollisionShape3D" parent="Paddle 1/AnimatablePaddle1" unique_id=710358859]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
-shape = SubResource("BoxShape3D_kh0q7")
-
-[node name="Paddle 2" type="Node3D" parent="." unique_id=2075879603]
-
-[node name="AnimatablePaddle2" type="AnimatableBody3D" parent="Paddle 2" unique_id=689241658]
-physics_material_override = SubResource("PhysicsMaterial_fc0e3")
-
-[node name="Paddle 2" type="MeshInstance3D" parent="Paddle 2/AnimatablePaddle2" unique_id=1761316439]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
-mesh = SubResource("BoxMesh_dksfx")
-
-[node name="CollsionPaddle2" type="CollisionShape3D" parent="Paddle 2/AnimatablePaddle2" unique_id=1907009098]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
-shape = SubResource("BoxShape3D_kh0q7")
-
 [node name="Ball" type="Node3D" parent="." unique_id=1354277287]
 
 [node name="RigidBall3D" type="RigidBody3D" parent="Ball" unique_id=461580627]
@@ -116,7 +97,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 physics_material_override = SubResource("PhysicsMaterial_80nbo")
 gravity_scale = 0.0
 linear_damp_mode = 1
-script = ExtResource("1_80nbo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ball/RigidBall3D" unique_id=2028462525]
 mesh = SubResource("SphereMesh_ooxkd")
@@ -128,3 +108,31 @@ shape = SubResource("SphereShape3D_ldcxq")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=395989490]
 transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364818, 0, -0.17364818, 0.9848077, -0.11620426, 1.5421196, 2.6540098)
+
+[node name="AnimatablePaddle2" type="AnimatableBody3D" parent="." unique_id=689241658]
+physics_material_override = SubResource("PhysicsMaterial_fc0e3")
+
+[node name="Paddle 2" type="MeshInstance3D" parent="AnimatablePaddle2" unique_id=1761316439]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
+mesh = SubResource("BoxMesh_dksfx")
+
+[node name="CollsionPaddle2" type="CollisionShape3D" parent="AnimatablePaddle2" unique_id=1907009098]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
+shape = SubResource("BoxShape3D_kh0q7")
+
+[node name="Paddle1" type="AnimatableBody3D" parent="." unique_id=509870967 node_paths=PackedStringArray("ar_view")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
+script = ExtResource("2_e2o6t")
+ar_view = NodePath("../ARView")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Paddle1" unique_id=447679875]
+shape = SubResource("BoxShape3D_0w2e0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Paddle1" unique_id=327832181]
+mesh = SubResource("BoxMesh_0w2e0")
+
+[node name="Camera3D" type="Camera3D" parent="Paddle1" unique_id=499626726 node_paths=PackedStringArray("ar_view")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0)
+current = true
+script = ExtResource("3_feb5d")
+ar_view = NodePath("../../ARView")
