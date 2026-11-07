@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cyuhulta0gems"]
 
 [ext_resource type="Script" uid="uid://5t2vdcrveb86" path="res://rigid_body_3d.gd" id="1_80nbo"]
-[ext_resource type="Script" uid="uid://c6416extqssam" path="res://network_manager.gd" id="2_e2o6t"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kh0q7"]
 friction = 0.0
@@ -129,6 +128,3 @@ shape = SubResource("SphereShape3D_ldcxq")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=395989490]
 transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364818, 0, -0.17364818, 0.9848077, -0.11620426, 1.5421196, 2.6540098)
-
-[node name="Network Manager" type="Node" parent="." unique_id=5319145]
-script = ExtResource("2_e2o6t")

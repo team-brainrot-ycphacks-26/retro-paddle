@@ -19,9 +19,6 @@ func _ready() -> void:
 			push_error("Client failed to start " + error_string(result))
 			return
 
-		# Will be used in future to show lobby when client connects
-		multiplayer.connected_to_server.connect(_on_connected_to_server)
-
 		multiplayer.multiplayer_peer = peer
 
 	# Start server
@@ -34,6 +31,8 @@ func _ready() -> void:
 			push_error("Server failed to start " + error_string(result))
 			return
 
+		RootScene.instance.transition_to("res://scenes/lobby_scene.tscn")
+
 		# Creates signal for clients connecting
 		multiplayer.peer_connected.connect(_on_peer_connected)
 
@@ -42,7 +41,3 @@ func _ready() -> void:
 
 func _on_peer_connected(id: int) -> void:
 	print("Client connected: ", id)
-
-
-func _on_connected_to_server() -> void:
-	pass

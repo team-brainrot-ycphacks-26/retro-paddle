@@ -41,7 +41,3 @@ func transition_to(scene_path: String) -> void:
 		return
 
 	content_scene.add_child(target_scene.instantiate())
-
-
-func _ready() -> void:
-	transition_to("res://scenes/lobby_scene.tscn")
